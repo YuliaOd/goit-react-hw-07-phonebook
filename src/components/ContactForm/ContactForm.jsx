@@ -35,7 +35,7 @@ export const ContactForm = () => {
         const addedContacts = getAddedContacts(name);
         (addedContacts) ?
             Notiflix.Notify.warning(`${name} is already in contacts`) :
-            dispatch(addContact({ name: form.elements.name.value, phone: form.elements.phone.value }));
+            dispatch(addContact({ name: form.elements.name.value, phone: form.elements.phone.value })) &&
 
         setName('');
         setPhone('');
