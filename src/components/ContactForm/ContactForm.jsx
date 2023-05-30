@@ -32,13 +32,15 @@ export const ContactForm = () => {
         event.preventDefault();
         const form = event.currentTarget;
         
-        const addedContacts = getAddedContacts(name, phone);
-        (addedContacts) ?
-            Notiflix.Notify.warning(`${name} is already in contacts`) :
-            dispatch(addContact({ name: form.elements.name.value, phone: form.elements.phone.value }));
 
-            event.target.reset();
-    }
+if (getAddedContacts) {
+    Notiflix.Notify.warning(`${name} is already in contacts`);
+}
+else {
+    dispatch(addContact({ name: form.elements.name.value, phone: form.elements.phone.value }));
+    form.reset(); 
+}
+}
 
     const getAddedContacts = (name) => {
         return contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())
