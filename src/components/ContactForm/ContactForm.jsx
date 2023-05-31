@@ -33,7 +33,7 @@ export const ContactForm = () => {
         const form = event.currentTarget;
         
 
-if (getAddedContacts) {
+if (getAddedContacts(name)) {
     Notiflix.Notify.warning(`${name} is already in contacts`);
 }
 else {
